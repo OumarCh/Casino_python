@@ -1,0 +1,18 @@
+{% extends 'default.html' %}
+
+{%block title%}
+    <title>Accueil</title>
+{% endblock %}
+
+{%block body%}
+    <div class="jumbotron">
+        <h1 class="display-3"><img src="{{ url_for('static', filename='images/logo.png') }}"> Video Poker</h1>
+        <p class="lead">Tada ! Jouer au Video Poker en ligne et amusez-vous immédiatement.</p>
+        <hr class="my-4">
+        <p>Nous vous proposons ci-après de jouer à la machine de Video Poker en ligne. Ce jeu présente généralement des variantes au niveau des règles et/ou des gains obtenus, pour plus de détails consultez l'aide (menu Aide, ou Tableau de gains ou encore Paie...) dans ces jeux de casino.</p>
+        <p class="lead">
+        <a class="btn btn-primary btn-lg" href="{{ url_for('premierTirage')}}" role="button">Je joue</a>
+        <a class="btn btn-primary btn-lg" href="{{ url_for('aide')}}" role="button">Je veux de l'aide</a>
+        </p>
+    </div>
+{% endblock %}

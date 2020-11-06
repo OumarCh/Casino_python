@@ -1,0 +1,5 @@
+body {
+    background-image: url('../images/royale-background.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+}

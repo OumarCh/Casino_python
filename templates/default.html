@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {%block title%}<title>Page Title</title>{% endblock %}
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/flatly.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/flatly.min.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    </head>
+    <body>
+        {%block body%}{% endblock %}
+    </body>
+</html>

@@ -1,0 +1,31 @@
+{% extends 'default.html' %}
+
+{%block title%}
+    <title>Deuxième tirage - Casino Python</title>
+{% endblock %}
+
+{%block body%}
+    <div class="container bg-white p-3">
+        <h2>Deuxième tirage</h2>
+        <div class="p-3">
+            <span>Banque <button type="button" class="btn btn-warning">{{session['bank']}}</button></span>
+            <span>Mise <button type="button" class="btn btn-danger">{{session['mise_joueur']}}</button></span>
+        </div>
+        <div class="p-3">
+            {% if not resultat%}
+                    <div class="row">
+                        {% for carte in tirage2 %}
+                        <div class="col-2">
+                            <img src="static/images/{{carte}}.svg"><br><br>
+                        </div>
+                        {% endfor %}
+                    </div>
+            {% endif %}
+        </div>
+        <div>
+            <p>Gain : <button type="button" class="btn btn-warning">{{total}}</button></p>
+            <p>Resultat : {{result}}</p>
+            <a class="btn btn-primary btn-lg" href="{{ url_for('premierTirage')}}" role="button">Rejouer</a>
+        </div>
+    </div>
+{% endblock %}

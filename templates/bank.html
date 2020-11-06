@@ -1,0 +1,41 @@
+{% extends 'default.html' %}
+
+{%block title%}
+    <title>Premier tirage - Casino Python</title>
+{% endblock %}
+
+{%block body%}
+    <div class="container bg-white p-3">
+        <form method="POST" action="{{ url_for('premierTirage')}}">
+            <label class="control-label">Insérer un billet</label>
+            <div class="form-group">
+                <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">€</span>
+                </div>
+                {% if session['bank'] %}
+                    <input type="number" class="form-control" value="{{session['bank']}}" name="bankroll" pattern="[0-9]+" min="20" required aria-label="Montant en euro">
+                {% else %}
+                    <input type="number" class="form-control" value="{{session['bank']}}" name="bankroll" pattern="[0-9]+" min="20" required aria-label="Montant en euro">
+                {% endif %}
+                    <div class="input-group-append">
+                    <span class="input-group-text">.00</span>
+                </div>
+                </div>
+            </div>
+            <label class="control-label">Faites votre jeu</label>
+            <div class="form-group">
+                <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">€</span>
+                </div>
+                <input type="number" class="form-control" name="mise" min="20" pattern="[0-9]+" required aria-label="Montant en euro">
+                <div class="input-group-append">
+                    <span class="input-group-text">.00</span>
+                </div>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-danger">Confirmer</button>
+        </form>
+    </div>
+{% endblock %}

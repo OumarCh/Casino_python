@@ -1,0 +1,30 @@
+{% extends 'default.html' %}
+
+{%block title%}
+    <title>Premier tirage - Casino Python</title>
+{% endblock %}
+
+{%block body%}
+    <div class="container bg-white p-3">
+        <h2>Premier tirage</h2>
+        <div class="p-3">
+            <span>Banque <button type="button" class="btn btn-warning">{{session['bank']}}</button></span>
+            <span>Mise <button type="button" class="btn btn-danger">{{session['mise_joueur']}}</button></span>
+        </div>
+        <div class="p-3">
+            <h5>Décochez les cartes que vous ne gardez pas</h5>
+            <form method="POST" action="{{ url_for('deuxiemeTirage')}}">
+                <div class="row">
+                    {% for carte in tirage1 %}
+                    <div class="col-2">
+                        <img src="static/images/{{carte}}.svg"><br><br>
+                        <p class="text-center"><input class="form-check-input" name="{{carte}}" type="checkbox" value="{{carte}}" checked="">
+                          Oui</p>
+                    </div>
+                    {% endfor %}
+                </div>
+                <button type="submit" class="btn btn-danger mt-3">Confirmer</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}
